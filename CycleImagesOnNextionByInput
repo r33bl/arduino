@@ -1,0 +1,51 @@
+int led = 10; //LED=ON for testing positive 5V
+
+int input1 = 5; //1st LED on pin 5
+int input2 = 8; //2nd LED on pin 8
+int input3 = 12; //3rd LED on pin 12
+
+void setup()
+{
+  Serial.begin(9600);
+
+  pinMode (ledPin1, OUTPUT); 
+
+  pinMode (ledPin4, INPUT);
+  pinMode (ledPin5, INPUT);
+  pinMode (ledPin6, INPUT);
+
+}
+void loop()
+{
+
+cycle (); //i only call this function, cause i want to test it with something else in loop
+
+}
+void slika(){
+  int val1 = 0;
+  int val2 = 0;
+  int val3 = 0;
+  
+val1 =  digitalRead(ledPin4);
+val2 =  digitalRead(ledPin5);
+val3 =  digitalRead(ledPin6);
+
+      if (val1 == HIGH){
+        Serial.print("p0.pic=0");
+                Serial.write(0xff);
+                Serial.write(0xff);
+                Serial.write(0xff);
+  }
+      if (val2 == HIGH){
+        Serial.print("p0.pic=1");
+                Serial.write(0xff);
+                Serial.write(0xff);
+                Serial.write(0xff);
+  }
+      if (val3 == HIGH){
+        Serial.print("p0.pic=2");
+                Serial.write(0xff);
+                Serial.write(0xff);
+                Serial.write(0xff);
+  }
+}
