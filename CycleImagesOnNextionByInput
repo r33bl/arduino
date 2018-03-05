@@ -8,11 +8,11 @@ void setup()
 {
   Serial.begin(9600);
 
-  pinMode (ledPin1, OUTPUT); 
+  pinMode (led, OUTPUT); 
 
-  pinMode (ledPin4, INPUT);
-  pinMode (ledPin5, INPUT);
-  pinMode (ledPin6, INPUT);
+  pinMode (input1, INPUT);
+  pinMode (input2, INPUT);
+  pinMode (input3, INPUT);
 
 }
 void loop()
@@ -26,9 +26,9 @@ void cycle(){
   int val2 = 0;
   int val3 = 0;
   
-val1 =  digitalRead(ledPin4);
-val2 =  digitalRead(ledPin5);
-val3 =  digitalRead(ledPin6);
+val1 =  digitalRead(input1);
+val2 =  digitalRead(input2);
+val3 =  digitalRead(input3);
 
       if (val1 == HIGH){
         Serial.print("p0.pic=0");
