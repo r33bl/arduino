@@ -17,11 +17,11 @@ void setup()
 }
 void loop()
 {
-
-cycle (); //i only call this function, cause i want to test it with something else in loop
+digitalWrite(led, HIGH)
+cycle ();               //i only call this function, cause i want to test it with something else in loop
 
 }
-void slika(){
+void cycle(){
   int val1 = 0;
   int val2 = 0;
   int val3 = 0;
