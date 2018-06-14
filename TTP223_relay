@@ -1,0 +1,68 @@
+
+ /*
+ * Arduino code for  TTP223 Touch module switch
+ * by touching the module, the pin 8 is sending signal to turn the Relay or switch ON  
+ * Created by Josip Marijanovic 14. June 2018.
+ */
+int A = 3;
+int B = 4;
+int touchPin = 2;
+int val = 0; 
+int relayPin = 8;
+
+void setup() {
+ Serial.begin(9600);
+ Serial1.begin(38400);
+  pinMode(touchPin, INPUT); 
+  pinMode(relayPin, OUTPUT);
+  pinMode (A, INPUT);
+  pinMode (B, INPUT);
+
+}
+
+void loop() {
+  digitalWrite(relayPin, HIGH);
+  val = digitalRead(touchPin); 
+  if(val ==1){
+  digitalWrite(relayPin, LOW);
+ }
+  pic();
+    delay (100);
+}
+void pic(){
+  int a = digitalRead(A);
+  int b = digitalRead(B);
+ 
+  
+if(a == LOW && b == LOW){
+        Serial1.print("p0.pic=0");
+               Serial.write(0xff);
+               Serial.write(0xff);
+               Serial.write(0xff);     
+}
+      
+if(a == LOW && b == HIGH){
+       Serial1.print("p0.pic=1");
+               Serial.write(0xff);
+               Serial.write(0xff);
+               Serial.write(0xff); 
+       
+}
+
+if(a == HIGH && b == LOW){
+      Serial1.print("p0.pic=1");
+               Serial.write(0xff);
+               Serial.write(0xff);
+               Serial.write(0xff); 
+        
+}
+      
+if(a == HIGH && b == HIGH){
+  
+      Serial1.print("p0.pic=2");
+               Serial.write(0xff);
+               Serial.write(0xff);
+               Serial.write(0xff); 
+}
+}
+
